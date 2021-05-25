@@ -42,6 +42,13 @@
       </div>
                       
       <div>
+        <label for="status_box">Status</label>
+          
+        <input id="status_box" name="query_status" type="checkbox" value="1" <%= "checked" if @current_user.status %>>
+          
+      </div>
+                      
+      <div>
         <label for="sent_follow_requests_count_box">Sent follow requests count</label>
           
         <input id="sent_follow_requests_count_box" name="query_sent_follow_requests_count" value="<%= @current_user.sent_follow_requests_count %>">

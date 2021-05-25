@@ -10,7 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_25_202009) do
+ActiveRecord::Schema.define(version: 2021_05_25_215205) do
+
+  create_table "comments", force: :cascade do |t|
+    t.text "body"
+    t.integer "author_id"
+    t.integer "photo_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "follow_requests", force: :cascade do |t|
     t.integer "sender_id"
@@ -28,7 +36,7 @@ ActiveRecord::Schema.define(version: 2021_05_25_202009) do
   end
 
   create_table "photos", force: :cascade do |t|
-    t.string "caption"
+    t.text "caption"
     t.string "image"
     t.integer "owner_id"
     t.integer "likes_count"
@@ -48,6 +56,7 @@ ActiveRecord::Schema.define(version: 2021_05_25_202009) do
     t.integer "own_photos_count"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.boolean "private"
   end
 
 end
