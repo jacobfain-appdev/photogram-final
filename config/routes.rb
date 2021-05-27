@@ -105,7 +105,7 @@ Rails.application.routes.draw do
   #Routes for users index and page
 
   #INDEX
-
+  get "/", :controller => "users", :action => "index"
   get("/users", {:controller => "users", :action => "index"})
   get("/users/:path_username", {:controller => "users", :action => "show"})
 

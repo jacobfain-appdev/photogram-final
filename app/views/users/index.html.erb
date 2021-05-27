@@ -1,5 +1,6 @@
 <h1>List of users</h1>
 
+
 <table border ="1">
   <tr>
     <th>
@@ -26,9 +27,15 @@
         <%end%>
     </td>
     <td>
+      <%if @current_user != nil%>
+        <form action ="/insert_follow_request" method ="post">
+          <input type = "hidden" name ="query_recipient_id" value = "<%=user.id%>">
+          <button>Follow</button>
+        </form>
+      <%end%>
     </td>
     <th>
-    Show details
+    <a href= "/users/<%=user.username%>">Show details</a>
     </th>
   </tr>
   <%end%>
