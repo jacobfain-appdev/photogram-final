@@ -3,6 +3,8 @@ class UsersController < ApplicationController
   
   def index 
     @users = User.all.order({:username => :asc})
+
+    @requests = FollowRequest.where({:sender_id=>@current_user})        
     render({:template => "users/index.html.erb"})
   end
 

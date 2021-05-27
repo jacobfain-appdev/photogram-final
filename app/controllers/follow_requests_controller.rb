@@ -30,8 +30,10 @@ class FollowRequestsController < ApplicationController
      the_follow_request.status = "pending"
     end
 
+    the_follow_request.save
+
     if the_follow_request.status == "accepted"
-      the_follow_request.save
+     
       redirect_to("/users/#{recipient.username}", { :notice => "Follow request created successfully." })
     else
       redirect_to("/", { :notice => "Follow request failed to create successfully." })
@@ -57,9 +59,15 @@ class FollowRequestsController < ApplicationController
   def destroy
     the_id = params.fetch("path_id")
     the_follow_request = FollowRequest.where({ :id => the_id }).at(0)
-
+    receiver = the_follow_request.recipient
+    recipient_username = receiver.username
+    recipient_private = receiver.private
     the_follow_request.destroy
 
-    redirect_to("/follow_requests", { :notice => "Follow request deleted successfully."} )
+    if recipient_private == true
+      redirect_to("/")
+    else
+      redirect_to("/users/#{recipient_username}")
+    end
   end
 end

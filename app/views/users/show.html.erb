@@ -1,1 +1,11 @@
 <h1><%=@user.username%></h1>
+
+<dt>Private</dt>
+<dd><%=@user.private%></dd>
+
+<dt>Followers</dt>
+<dd><%=@user.received_follow_requests_count%></dd>
+
+
+<dt>Following</dt>
+<dd><%=@user.sent_follow_requests_count%></dd>
