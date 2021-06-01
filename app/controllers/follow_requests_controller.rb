@@ -50,9 +50,9 @@ class FollowRequestsController < ApplicationController
 
     if the_follow_request.valid?
       the_follow_request.save
-      redirect_to("/follow_requests/#{the_follow_request.id}", { :notice => "Follow request updated successfully."} )
+      redirect_to("/users/#{the_follow_request.recipient.username}", { :notice => "Follow request updated successfully."} )
     else
-      redirect_to("/follow_requests/#{the_follow_request.id}", { :alert => "Follow request failed to update successfully." })
+      redirect_to("/users/#{the_follow_request.recipient.username}", { :alert => "Follow request failed to update successfully." })
     end
   end
 

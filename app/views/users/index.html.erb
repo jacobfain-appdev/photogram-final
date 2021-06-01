@@ -37,7 +37,7 @@
       <%elsif @current_user.sent_follow_requests.where({:recipient_id=>user.id}).at(0).status == "accepted"%>
         <a href = "/delete_follow_request/<%=@current_user.sent_follow_requests.where({:recipient_id=>user.id}).at(0).id%>">Unfollow</a>
       <%elsif @current_user.sent_follow_requests.where({:recipient_id=>user.id}).at(0).status == "pending"%>  
-        Request sent. Cancel     
+        Request sent. <a href = "/delete_follow_request/<%=@current_user.sent_follow_requests.where({:recipient_id=>user.id}).at(0).id%>">Cancel</a>     
       <%end%>
     </td>
     <td>

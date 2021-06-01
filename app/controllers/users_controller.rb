@@ -12,6 +12,11 @@ class UsersController < ApplicationController
     the_username = params.fetch("path_username")
     matching_user = User.where({:username => the_username})
     @user = matching_user.at(0)
+
+    @pending = @user.received_follow_requests.where({:status =>"pending"})
+
+    @follow_exist = @user.received_follow_requests.where({:sender_id => @current_user})
+
     render({:template => "users/show.html.erb"})
   end
 end
