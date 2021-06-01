@@ -24,7 +24,11 @@
           <a href="/photos">All public photos<a>
         </li>
         <li>
+        <%if @current_user.present?%>
+          <a href="/edit_user_profile"><%=@current_user.username%></a>
+        <%else%>
           <a href="/user_sign_in">Sign In<a>
+        <%end%>
         </li>
         <li>
           <a href="/user_sign_up">Sign Up<a>

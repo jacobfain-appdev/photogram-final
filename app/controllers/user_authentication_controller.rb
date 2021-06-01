@@ -73,7 +73,7 @@ class UserAuthenticationController < ApplicationController
     @user.username = params.fetch("query_username")
     @user.comments_count = params.fetch("query_comments_count")
     @user.likes_count = params.fetch("query_likes_count")
-    @user.status = params.fetch("query_status", false)
+    @user.private = params.fetch("query_private", false)
     @user.sent_follow_requests_count = params.fetch("query_sent_follow_requests_count")
     @user.received_follow_requests_count = params.fetch("query_received_follow_requests_count")
     @user.own_photos_count = params.fetch("query_own_photos_count")

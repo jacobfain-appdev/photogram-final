@@ -40,6 +40,8 @@
         <input type = "hidden" name ="query_recipient_id" value = "<%=@user.id%>">
         <button>Follow</button>
       </form>
+<%else%>
+    <a href = "/delete_follow_request/<%=@current_user.sent_follow_requests.where({:recipient_id=>@user.id}).at(0).id%>">Unfollow</a>
 <%end%>
 <dt>Following</dt>
   <dd><%=@user.sent_follow_requests_count%></dd>
@@ -75,3 +77,5 @@
     </li>
   </ul>
 </nav>
+
+<h2>Own photos (<%=@user.own_photos_count%>)</h2>
