@@ -108,6 +108,7 @@ Rails.application.routes.draw do
   get "/", :controller => "users", :action => "index"
   get("/users", {:controller => "users", :action => "index"})
   get("/users/:path_username", {:controller => "users", :action => "show"})
+  get("/users/:path_username/feed", {:controller => "users", :action => "feed"})
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

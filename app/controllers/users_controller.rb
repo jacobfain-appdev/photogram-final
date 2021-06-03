@@ -19,4 +19,11 @@ class UsersController < ApplicationController
 
     render({:template => "users/show.html.erb"})
   end
+
+  def feed
+  the_username = params.fetch("path_username")
+  matching_user = User.where({:username => the_username})
+  @user = matching_user.at(0)
+  render({:template => "users/feed.html.erb"})
+  end
 end
